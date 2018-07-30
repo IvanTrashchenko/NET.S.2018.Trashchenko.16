@@ -8,7 +8,8 @@ namespace TrafficLightLibrary.ConsoleTests
         {
             // cyclic state switching
 
-            TrafficLight trafficLight = new TrafficLight();
+            // TrafficLight trafficLight = new TrafficLight();
+            EventTrafficLight trafficLight = new EventTrafficLight();
 
             ConsoleKeyInfo temp;
             do
@@ -19,20 +20,6 @@ namespace TrafficLightLibrary.ConsoleTests
                 temp = Console.ReadKey();
             }
             while (temp.Key != ConsoleKey.Enter);
-
-            // only subscribed states swithcing
-
-            EventTrafficLight trafficLight2 = new EventTrafficLight();
-
-            GreenObserver firstObserver = new GreenObserver();
-            YellowObserver secondObserver = new YellowObserver();
-
-            firstObserver.Subscribe(trafficLight2);
-            secondObserver.Subscribe(trafficLight2);
-
-            Console.Clear();
-            trafficLight2.SwitchState();
-            temp = Console.ReadKey();
         }
     }
 }
